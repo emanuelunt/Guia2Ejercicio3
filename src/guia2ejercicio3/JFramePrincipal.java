@@ -106,7 +106,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         String nombre = JOptionPane.showInputDialog(this, "Nombre Producto");
 
         while (nombre.equals("")) {
-            JOptionPane.showConfirmDialog(this, "el producto no puede se vacio");
+            JOptionPane.showMessageDialog(this, "el producto no puede se vacio");
             nombre = JOptionPane.showInputDialog(this, "Nombre Producto");
         }
 
@@ -123,7 +123,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
             }
         } catch (NumberFormatException error) {
             
-            JOptionPane.showConfirmDialog(this, "Tiene que Ingresar un valor númerico para el precio");
+            JOptionPane.showMessageDialog(this, "Tiene que Ingresar un valor númerico para el precio");
         }
 
         actualizarTabla(listaProductos);
