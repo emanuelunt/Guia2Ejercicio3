@@ -23,6 +23,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     public JFramePrincipal() {
         initComponents();
         armarCabecera();
+        this.setDefaultCloseOperation(JFramePrincipal.DO_NOTHING_ON_CLOSE);
     }
 
     /**
@@ -40,6 +41,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de Productos");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Categoria:");
 
@@ -87,7 +93,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
@@ -128,6 +134,18 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         actualizarTabla(listaProductos);
     }//GEN-LAST:event_jbAgregarProductoActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // Evento que se dispara antes del cierre de la ventana
+       
+        if (JOptionPane.showConfirmDialog(this, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Saliendo del programa");
+            
+            System.exit(0);            
+        }
+        return;
+        
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
